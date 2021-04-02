@@ -5,7 +5,7 @@ Nest deno tests with appropriate names.
 ## Example
 
 ```ts
-import { test } from "https://deno.land/x/test/mod.ts";
+import { test } from "./mod.ts";
 import { assertEquals } from "https://deno.land/std@0.92.0/testing/asserts.ts";
 
 test({
