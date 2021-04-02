@@ -1,11 +1,5 @@
-# test
+import { test } from "./mod.ts";
 
-Nest deno tests with appropriate names.
-
-## Example
-
-```ts
-import { test } from "https://deno.land/x/test/mod.ts";
 import { assertEquals } from "https://deno.land/std@0.92.0/testing/asserts.ts";
 
 test({
@@ -47,16 +41,3 @@ test({
     },
   ],
 });
-```
-
-output
-
-```sh
-running 4 tests
-test suite → group 1 → test 1 ... ok (1ms)
-test suite → group 1 → test 2 ... ok (1ms)
-test suite → group 2 → test 1 ... ok (2ms)
-test suite → group 2 → test 2 ... ok (2ms)
-
-test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (7ms)
-```
