@@ -1,9 +1,9 @@
-import { test } from "./mod.ts";
+import { tests } from "./mod.ts";
 
 import { assertEquals } from "https://deno.land/std@0.92.0/testing/asserts.ts";
 
-test({
-  name: "suite",
+tests({
+  name: "nesting",
   tests: () => [
     {
       name: "group 1",
@@ -40,4 +40,25 @@ test({
       ],
     },
   ],
+});
+
+async function get() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("foo"), 100);
+  });
+}
+
+tests({
+  name: "async",
+  tests: () => {
+    return [
+      {
+        name: "fn",
+        fn: async () => {
+          const data = await get();
+          assertEquals(data, "foo");
+        },
+      },
+    ];
+  },
 });

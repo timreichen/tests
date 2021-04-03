@@ -9,11 +9,12 @@ function isTestGroupDefinition(t: any): t is TestGroupDefinition {
   return t.tests !== undefined;
 }
 
-export function test(t: TestDefinition) {
+export function tests(t: TestDefinition) {
   function create(t: TestDefinition, names: string[]) {
     if (isTestGroupDefinition(t)) {
       names.push(t.name);
-      t.tests().forEach((t) => create(t, [...names]));
+      const tests = t.tests();
+      tests.forEach((t) => create(t, [...names]));
     } else {
       Deno.test({
         ...t,
